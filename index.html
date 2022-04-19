@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+      window.Telegram.WebApp.expand()
+      window.Telegram.WebApp.MainButton.setParams({'is_visible': true})
+    </script>
+    <link rel="stylesheet" href="index1.css">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <title>WebApp</title>
+</head>
+<body>
+    <div class="form">
+        <input class="input" type="text" placeholder="Введите номер телефона" >
+
+        <input class="input" type="text" placeholder="Введите имя" >
+
+        <input class="input" type="text" placeholder="Введите фамилию" >
+
+        <div class="row">
+            <input class="input" type="text" placeholder="Марка автомобиля" >
+            <div class="divider"></div>
+            <input class="input" type="text" placeholder="Номер автомобиля" >
+            <div class="divider"></div>
+            <input class="input" type="text" placeholder="Цвет автомобиля" >
+        </div>
+
+        <div class="row">
+            <div class="checkbox-button active">Я водитель</div>
+            <div class="divider"></div>
+            <div class="checkbox-button">Я клиент</div>
+        </div>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll(".checkbox-button");
+      const buttonsArray = Array.from(buttons);
+      buttonsArray.forEach(button => {
+        button.addEventListener('click', (event) => {
+          if (!button.classList.contains('active')) {
+            const anotherButton = buttonsArray.find(btn => btn.classList.contains('active'));
+            anotherButton.classList.remove('active');
+            button.classList.add('active');
+          }
+        })
+      })
+
+    </script>
+</body>
+</html>
